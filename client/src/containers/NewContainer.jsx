@@ -21,15 +21,17 @@ class NewContainer extends React.Component {
 
   render() {
     return (
-      <nav>
-        <input
-          type="text"
-          onChange={ this.handleTitleChanged }
-          value={ this.props.title }
-          placeholder="Enter title for card set"
-        />
-      <GifFinderContainer />
-      </nav>
+      <div>
+        <nav>
+          <input
+            type="text"
+            onChange={ this.handleTitleChanged }
+            value={ this.props.title }
+            placeholder="Enter title for card set"
+          />
+        </nav>
+        <GifFinderContainer />
+      </div>
     )
   }
 
