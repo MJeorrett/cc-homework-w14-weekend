@@ -19,9 +19,7 @@ class GifFinderContainer extends React.Component {
     console.log( "getting images for search term:", searchTerm )
     fetchGifs( searchTerm, ( imageUrls ) => {
       console.log( "found images:", imageUrls )
-      this.setState({
-        imageUrls: imageUrls
-      })
+      this.props.updateSearchResults( imageUrls )
     })
   }
 
@@ -31,7 +29,7 @@ class GifFinderContainer extends React.Component {
         <SearchInputContainer
           urlEnteredCallback={ this.getImages }
         />
-        <ImageGridComponent imageUrls={ this.state.imageUrls } />
+      <ImageGridComponent imageUrls={ this.props.gifsToDisplay } />
       </div>
     )
   }

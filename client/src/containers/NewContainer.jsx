@@ -8,15 +8,24 @@ class NewContainer extends React.Component {
   constructor() {
     super()
     this.state = {
-      title: ""
+      title: "",
+      searchResultUrls: [],
+      selectedGifUrls: []
     }
     this.handleTitleChanged = this.handleTitleChanged.bind( this )
+    this.updateSearchResults = this.updateSearchResults.bind( this )
   }
 
   handleTitleChanged( ev ) {
     var newTitle = ev.target.value
     this.setState({
       title: newTitle
+    })
+  }
+
+  updateSearchResults( newSearchResults ) {
+    this.setState({
+      searchResultUrls: newSearchResults
     })
   }
 
@@ -32,8 +41,13 @@ class NewContainer extends React.Component {
           />
         </nav>
         <div>
-          <SelectedGifsContainer />
-          <GifFinderContainer />
+          <SelectedGifsContainer
+
+          />
+          <GifFinderContainer
+            gifsToDisplay={ this.state.searchResultUrls }
+            updateSearchResults={ this.updateSearchResults }
+          />
         </div>
       </div>
     )
