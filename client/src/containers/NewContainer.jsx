@@ -28,6 +28,12 @@ class NewContainer extends React.Component {
   }
 
   updateSearchResults( newSearchResults ) {
+
+    this.state.selectedGifUrls.forEach( (gifUrl) => {
+      const indexInResults = newSearchResults.indexOf( gifUrl )
+      if ( indexInResults !== -1 ) newSearchResults.splice( indexInResults, 1 )
+    })
+
     this.setState({
       searchResultUrls: newSearchResults,
       gifCount: Math.max( newSearchResults.length, this.state.selectedGifUrls.length )
