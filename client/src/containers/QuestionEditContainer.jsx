@@ -1,6 +1,7 @@
 import React from 'react'
 
 import TextInputContainer from './TextInputContainer'
+import QuestionListComponent from '../components/QuestionListComponent'
 
 class QuestionEditContainer extends React.Component {
 
@@ -19,6 +20,9 @@ class QuestionEditContainer extends React.Component {
         <TextInputContainer
           textEnteredCallback={ this.handleQuestionEntered }
           placeholder="Enter a question"
+        />
+        <QuestionListComponent
+          questions={ this.props.questions }
         />
       </div>
     )

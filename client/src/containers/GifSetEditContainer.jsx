@@ -39,6 +39,7 @@ class GifSetEditContainer extends React.Component {
           </div>
           <QuestionEditContainer
             addQuestionCallback={ this.addQuestion }
+            questions={ this.state.questions }
           />
         </div>
       </div>
