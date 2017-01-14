@@ -1,6 +1,13 @@
 img {
   width: 200px;
   height: 200px;
+  margin: 5px;
+}
+
+img:hover {
+  border: 3px solid tomato;
+  margin: 2px;
+  cursor: pointer;
 }
 
 .half-width {
