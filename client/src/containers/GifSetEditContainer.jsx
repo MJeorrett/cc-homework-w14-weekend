@@ -4,7 +4,7 @@ import StorageManager from '../helpers/StorageManager'
 import GifGridComponent from './GifGridComponent'
 import QuestionListContainer from './QuestionListContainer'
 
-class QuestionEditContainer extends React.Component {
+class GifSetEditContainer extends React.Component {
 
   constructor() {
     super()
@@ -47,4 +47,4 @@ class QuestionEditContainer extends React.Component {
 
 }
 
-export default QuestionEditContainer
+export default GifSetEditContainer

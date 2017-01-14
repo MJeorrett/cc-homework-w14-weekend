@@ -5,7 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import MainContainer from './containers/MainContainer'
 import IndexContainer from './containers/IndexContainer'
 import NewContainer from './containers/NewContainer'
-import QuestionEditContainer from './containers/QuestionEditContainer'
+import GifSetEditContainer from './containers/GifSetEditContainer'
 
 window.onload = function(){
   ReactDOM.render(
@@ -16,7 +16,7 @@ window.onload = function(){
         <Route path="/" component={ MainContainer }>
           <IndexRoute component={ IndexContainer } />
           <Route path="new" component={ NewContainer } />
-          <Route path="gif-sets/:title" component={ QuestionEditContainer } />
+          <Route path="gif-sets/:title" component={ GifSetEditContainer } />
         </Route>
       </Router>
     </div>,
