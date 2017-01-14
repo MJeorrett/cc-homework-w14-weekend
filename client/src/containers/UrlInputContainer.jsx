@@ -8,6 +8,7 @@ class UrlInputContainer extends React.Component {
       url: ""
     }
     this.handleUrlChanged = this.handleUrlChanged.bind( this )
+    this.handleButtonClicked = this.handleButtonClicked.bind( this )
   }
 
   handleUrlChanged( ev ) {
@@ -15,6 +16,10 @@ class UrlInputContainer extends React.Component {
     this.setState({
       url: newUrl
     })
+  }
+
+  handleButtonClicked() {
+    this.props.urlEnteredCallback( this.state.url )
   }
 
   render() {
@@ -26,6 +31,11 @@ class UrlInputContainer extends React.Component {
           value={ this.state.url }
           placeholder="Enter images API Url"
         />
+        <button
+          onClick={ this.handleButtonClicked }
+        >
+          Get Images
+        </button>
       </div>
     )
   }

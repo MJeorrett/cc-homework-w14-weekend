@@ -10,6 +10,7 @@ class NewContainer extends React.Component {
       title: ""
     }
     this.handleTitleChanged = this.handleTitleChanged.bind( this )
+    this.getImagesdFromApi = this.getImagesdFromApi.bind( this )
   }
 
   handleTitleChanged( ev ) {
@@ -18,6 +19,10 @@ class NewContainer extends React.Component {
       title: newTitle
     })
     console.log( "Title changed to:", newTitle )
+  }
+
+  getImagesdFromApi( apiUrl ) {
+    console.log( "getting images from", apiUrl );
   }
 
   render() {
@@ -29,7 +34,9 @@ class NewContainer extends React.Component {
           value={ this.props.title }
           placeholder="Enter title for card set"
         />
-        <UrlInputContainer />
+        <UrlInputContainer
+          urlEnteredCallback={ this.getImagesdFromApi }
+        />
       </nav>
     )
   }
