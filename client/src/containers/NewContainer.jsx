@@ -1,8 +1,6 @@
 import React from 'react'
 
-import SearchInputContainer from './SearchInputContainer'
-
-import fetchGifs from '../helpers/GifFetcher'
+import GifFinderContainer from './GifFinderContainer'
 
 class NewContainer extends React.Component {
 
@@ -12,20 +10,12 @@ class NewContainer extends React.Component {
       title: ""
     }
     this.handleTitleChanged = this.handleTitleChanged.bind( this )
-    this.getImages = this.getImages.bind( this )
   }
 
   handleTitleChanged( ev ) {
     var newTitle = ev.target.value
     this.setState({
       title: newTitle
-    })
-  }
-
-  getImages( searchTerm ) {
-    console.log( "getting images for search term:", searchTerm )
-    fetchGifs( searchTerm, ( images ) => {
-      console.log( "found images:", images )
     })
   }
 
@@ -38,9 +28,7 @@ class NewContainer extends React.Component {
           value={ this.props.title }
           placeholder="Enter title for card set"
         />
-      <SearchInputContainer
-          urlEnteredCallback={ this.getImages }
-        />
+      <GifFinderContainer />
       </nav>
     )
   }
