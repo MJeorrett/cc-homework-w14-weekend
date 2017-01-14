@@ -8,7 +8,7 @@ img {
   margin: 5px;
 }
 
-.image:hover {
+img:hover {
   border: 5px solid tomato;
   border-radius: 5px;
   margin: 0px;

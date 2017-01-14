@@ -12,19 +12,15 @@ class GifGridComponent extends React.Component {
   }
 
   render() {
-    var imageElements = []
-    for( let i = 0; i < this.props.gifCount; i++ ) {
-      const url = this.props.imageUrls[i]
-      const src = url || "/blank_image.jpg"
-      imageElements.push(
+    const imageElements = this.props.imageUrls.map( (imageUrl, index) => {
+      return (
         <img
-          key={ i }
-          className={ url ? 'image' : '' }
-          src={ src }
-          onClick={ url ? this.handleGifClicked : '' }
+          key={ index }
+          src={ imageUrl }
+          onClick={ this.handleGifClicked }
         />
       )
-    }
+    })
 
     return (
       <div>

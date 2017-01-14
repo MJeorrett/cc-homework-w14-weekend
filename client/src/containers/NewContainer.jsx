@@ -98,7 +98,7 @@ class NewContainer extends React.Component {
             onClickCallback={ this.handleNextClicked }
           />
         </nav>
-        <div>
+        <div className="content-container">
           <div className="half-width">
             <GifGridComponent
               imageUrls={ this.state.selectedGifUrls }
