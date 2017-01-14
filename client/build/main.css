@@ -2,3 +2,8 @@ img {
   width: 200px;
   height: 200px;
 }
+
+.half-width {
+  display: inline-block;
+  width: 50%;
+}

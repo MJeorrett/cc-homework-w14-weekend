@@ -1,5 +1,6 @@
 import React from 'react'
 
+import SelectedGifsContainer from './SelectedGifsContainer'
 import GifFinderContainer from './GifFinderContainer'
 
 class NewContainer extends React.Component {
@@ -30,7 +31,10 @@ class NewContainer extends React.Component {
             placeholder="Enter title for card set"
           />
         </nav>
-        <GifFinderContainer />
+        <div>
+          <SelectedGifsContainer />
+          <GifFinderContainer />
+        </div>
       </div>
     )
   }

@@ -27,7 +27,7 @@ class GifFinderContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="half-width">
         <SearchInputContainer
           urlEnteredCallback={ this.getImages }
         />
