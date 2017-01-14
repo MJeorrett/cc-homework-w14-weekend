@@ -1,11 +1,25 @@
 import React from 'react'
 
+import TextInputContainer from './TextInputContainer'
+
 class QuestionListContainer extends React.Component {
+
+  constructor() {
+    super()
+    this.handleQuestionEntered = this.handleQuestionEntered.bind( this )
+  }
+
+  handleQuestionEntered( question ) {
+    this.props.addQuestionCallback( question )
+  }
 
   render() {
     return (
       <div className="half-width">
-        <h3>Questions</h3>
+        <TextInputContainer
+          textEnteredCallback={ this.handleQuestionEntered }
+          placeholder="Enter a question"
+        />
       </div>
     )
   }

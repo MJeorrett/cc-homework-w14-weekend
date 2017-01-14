@@ -26,7 +26,8 @@ class GifFinderContainer extends React.Component {
     return (
       <div className="half-width">
         <TextInputContainer
-          urlEnteredCallback={ this.getImages }
+          textEnteredCallback={ this.getImages }
+          placeholder="Enter search term"
         />
       <GifGridComponent
         imageUrls={ this.props.gifsToDisplay }

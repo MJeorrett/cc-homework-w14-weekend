@@ -6,8 +6,23 @@ import QuestionListContainer from './QuestionListContainer'
 
 class QuestionEditContainer extends React.Component {
 
-  render () {
+  constructor() {
+    super()
+    this.state = {
+      questions: []
+    }
+    this.addQuestion = this.addQuestion.bind( this )
+  }
 
+  addQuestion( question ) {
+    const newQuestions = this.state.questions.slice(0)
+    newQuestions.push( question )
+    this.setState({
+      questions: newQuestions
+    })
+  }
+
+  render () {
     const title = this.props.params.title
     const gifSet = StorageManager.loadGifSet( title )
 
@@ -22,7 +37,9 @@ class QuestionEditContainer extends React.Component {
               onGifSelected={ "" }
             />
           </div>
-          <QuestionListContainer />
+          <QuestionListContainer
+            addQuestionCallback={ this.addQuestion }
+          />
         </div>
       </div>
     )

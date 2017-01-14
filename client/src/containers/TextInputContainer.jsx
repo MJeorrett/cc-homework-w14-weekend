@@ -21,7 +21,7 @@ class TextInputContainer extends React.Component {
   }
 
   handleButtonClicked() {
-    this.props.urlEnteredCallback( this.state.searchTerm )
+    this.props.textEnteredCallback( this.state.searchTerm )
   }
 
   render() {
@@ -31,7 +31,7 @@ class TextInputContainer extends React.Component {
           type="text"
           onChange={ this.handleInputChanged }
           value={ this.state.searchTerm }
-          placeholder="Enter search term"
+          placeholder={ this.props.placeholder || "Enter text" }
         />
         <button
           onClick={ this.handleButtonClicked }
