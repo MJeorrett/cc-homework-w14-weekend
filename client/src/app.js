@@ -10,7 +10,7 @@ window.onload = function(){
   ReactDOM.render(
 
     <div>
-      <h1>Guess Who?</h1>
+      <h1>Giphy Guess What?</h1>
       <Router history={ hashHistory }>
         <Route path="/" component={ MainContainer }>
           <IndexRoute component={ IndexContainer } />
