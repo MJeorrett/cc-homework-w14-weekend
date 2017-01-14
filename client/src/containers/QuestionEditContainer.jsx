@@ -20,6 +20,7 @@ class QuestionEditContainer extends React.Component {
         <TextInputContainer
           textEnteredCallback={ this.handleQuestionEntered }
           placeholder="Enter a question"
+          buttonText="Add Question"
         />
         <QuestionListComponent
           questions={ this.props.questions }

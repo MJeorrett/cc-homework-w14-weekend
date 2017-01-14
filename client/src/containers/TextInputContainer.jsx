@@ -6,7 +6,7 @@ class TextInputContainer extends React.Component {
     super()
     this.state = {
       searchTerm: "",
-      getImagesDisabled: true
+      buttonDisabled: true
     }
     this.handleInputChanged = this.handleInputChanged.bind( this )
     this.handleButtonClicked = this.handleButtonClicked.bind( this )
@@ -16,7 +16,7 @@ class TextInputContainer extends React.Component {
     const newSearchTerm = ev.target.value
     this.setState({
       searchTerm: newSearchTerm,
-      getImagesDisabled: newSearchTerm.length < 4
+      buttonDisabled: newSearchTerm.length < 4
     })
   }
 
@@ -24,7 +24,7 @@ class TextInputContainer extends React.Component {
     this.props.textEnteredCallback( this.state.searchTerm )
     this.setState({
       searchTerm: "",
-      getImagesDisabled: true
+      buttonDisabled: true
     })
   }
 
@@ -39,9 +39,9 @@ class TextInputContainer extends React.Component {
         />
         <button
           onClick={ this.handleButtonClicked }
-          disabled={ this.state.getImagesDisabled }
+          disabled={ this.state.buttonDisabled }
         >
-          Get Images
+          { this.props.buttonText || "Submit" }
         </button>
       </div>
     )
