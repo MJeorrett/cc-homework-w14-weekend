@@ -23,7 +23,8 @@ class TextInputContainer extends React.Component {
   handleButtonClicked() {
     this.props.textEnteredCallback( this.state.searchTerm )
     this.setState({
-      searchTerm: ""
+      searchTerm: "",
+      getImagesDisabled: true
     })
   }
 
