@@ -12,6 +12,7 @@ class ButtonLinkComponent extends React.Component {
     if ( this.props.disabled ) {
       ev.preventDefault()
     }
+    this.props.onClickCallback()
   }
 
   render() {

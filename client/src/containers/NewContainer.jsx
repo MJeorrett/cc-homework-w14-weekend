@@ -4,6 +4,7 @@ import SelectedGifsContainer from './SelectedGifsContainer'
 import GifFinderContainer from './GifFinderContainer'
 import GifGridComponent from './GifGridComponent'
 import ButtonLinkComponent from '../components/ButtonLinkComponent'
+import StorageManager from '../helpers/StorageManager'
 
 class NewContainer extends React.Component {
 
@@ -20,6 +21,7 @@ class NewContainer extends React.Component {
     this.updateSearchResults = this.updateSearchResults.bind( this )
     this.handleGifSelected = this.handleGifSelected.bind( this )
     this.handleGifDeselected = this.handleGifDeselected.bind( this )
+    this.handleNextClicked = this.handleNextClicked.bind( this )
   }
 
   handleTitleChanged( ev ) {
@@ -68,6 +70,10 @@ class NewContainer extends React.Component {
     this._updateState( newSelectedGifUrls, newSearchResults )
   }
 
+  handleNextClicked() {
+    StorageManager.saveGifSet( this.state.title, this.state.selectedGifUrls )
+  }
+
   _updateState( newSelectedGifUrls, newSearchResults ) {
     this.setState({
       searchResultUrls: newSearchResults,
@@ -90,6 +96,7 @@ class NewContainer extends React.Component {
             href={ `/gif-sets/${this.state.title}` }
             disabled={ this.state.nextDisabled }
             text="Next"
+            onClickCallback={ this.handleNextClicked }
           />
         </nav>
         <div>
