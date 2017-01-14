@@ -6,7 +6,7 @@ const fetchGifs = function( searchTerm, callBack ) {
   url += '&q=' + encodedSearchTerm
   XmlHttpHelper.get( url, (resultsObj) => {
     const images = resultsObj.data.map( (resultData ) => {
-      return resultData.images.downsized_medium.url
+      return resultData.images.fixed_height_small.url
     })
     callBack( images )
   })
