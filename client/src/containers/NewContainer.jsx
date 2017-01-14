@@ -2,7 +2,7 @@ import React from 'react'
 
 import SearchInputContainer from './SearchInputContainer'
 
-import fetchImages from '../helpers/imageFetcher'
+import fetchGifs from '../helpers/GifFetcher'
 
 class NewContainer extends React.Component {
 
@@ -24,7 +24,7 @@ class NewContainer extends React.Component {
 
   getImages( searchTerm ) {
     console.log( "getting images for search term:", searchTerm )
-    fetchImages( searchTerm, ( images ) => {
+    fetchGifs( searchTerm, ( images ) => {
       console.log( "found images:", images )
     })
   }

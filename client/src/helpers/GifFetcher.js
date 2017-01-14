@@ -1,6 +1,6 @@
 import XmlHttpHelper from './XmlHttpHelper'
 
-const imageFetcher = function( searchTerm, callBack ) {
+const fetchGifs = function( searchTerm, callBack ) {
   const encodedSearchTerm = searchTerm.replace( ' ', '+' )
   let url = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC'
   url += '&q=' + encodedSearchTerm
@@ -12,4 +12,4 @@ const imageFetcher = function( searchTerm, callBack ) {
   })
 }
 
-export default imageFetcher
+export default fetchGifs
