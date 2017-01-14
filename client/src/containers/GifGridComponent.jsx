@@ -1,6 +1,6 @@
 import React from 'react'
 
-class ImageGridComponent extends React.Component {
+class GifGridComponent extends React.Component {
 
   constructor() {
     super()
@@ -34,4 +34,4 @@ class ImageGridComponent extends React.Component {
   }
 }
 
-export default ImageGridComponent
+export default GifGridComponent

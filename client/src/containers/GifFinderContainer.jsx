@@ -1,7 +1,7 @@
 import React from 'react'
 
 import SearchInputContainer from './SearchInputContainer'
-import ImageGridComponent from './ImageGridComponent'
+import GifGridComponent from './GifGridComponent'
 
 import fetchGifs from '../helpers/GifFetcher'
 
@@ -28,7 +28,7 @@ class GifFinderContainer extends React.Component {
         <SearchInputContainer
           urlEnteredCallback={ this.getImages }
         />
-      <ImageGridComponent
+      <GifGridComponent
         imageUrls={ this.props.gifsToDisplay }
         onGifSelected={ this.props.onGifSelected }
         gifCount={ this.props.gifCount }

@@ -2,7 +2,7 @@ import React from 'react'
 
 import SelectedGifsContainer from './SelectedGifsContainer'
 import GifFinderContainer from './GifFinderContainer'
-import ImageGridComponent from './ImageGridComponent'
+import GifGridComponent from './GifGridComponent'
 
 class NewContainer extends React.Component {
 
@@ -61,7 +61,7 @@ class NewContainer extends React.Component {
         </nav>
         <div>
           <div className="half-width">
-            <ImageGridComponent
+            <GifGridComponent
               imageUrls={ this.state.selectedGifUrls }
               gifCount={ this.state.gifCount }
             />
