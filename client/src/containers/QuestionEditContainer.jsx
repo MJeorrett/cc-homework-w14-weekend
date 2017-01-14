@@ -2,6 +2,7 @@ import React from 'react'
 
 import StorageManager from '../helpers/StorageManager'
 import GifGridComponent from './GifGridComponent'
+import QuestionListContainer from './QuestionListContainer'
 
 class QuestionEditContainer extends React.Component {
 
@@ -12,13 +13,16 @@ class QuestionEditContainer extends React.Component {
 
     return (
       <div>
-        <p>Editing gif-set: { title }</p>
-        <div className="half-width">
-          <GifGridComponent
-            imageUrls={ gifSet }
-            gifCount={ gifSet.length }
-            onGifSelected={ "" }
-          />
+        <h2>{ title }</h2>
+        <div className="content-container">
+          <div className="half-width">
+            <GifGridComponent
+              imageUrls={ gifSet }
+              gifCount={ gifSet.length }
+              onGifSelected={ "" }
+            />
+          </div>
+          <QuestionListContainer />
         </div>
       </div>
     )

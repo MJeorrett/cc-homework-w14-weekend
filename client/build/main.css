@@ -1,3 +1,7 @@
+h1, h2, h3 {
+  text-align: center;
+}
+
 img {
   width: 200px;
   height: 200px;
@@ -14,4 +18,8 @@ img {
 .half-width {
   display: inline-block;
   width: 50%;
+}
+
+.content-container {
+  display: flex;
 }
