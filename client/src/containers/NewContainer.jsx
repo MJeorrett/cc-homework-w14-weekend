@@ -36,17 +36,25 @@ class NewContainer extends React.Component {
 
   handleGifSelected( gifUrl ) {
     const newSelectedGifUrls = this.state.selectedGifUrls.slice(0)
-    newSelectedGifUrls.push( gifUrl )
+    if ( newSelectedGifUrls.indexOf( gifUrl ) === -1 ) {
+      newSelectedGifUrls.push( gifUrl )
+    }
+
     const newSearchResults = this.state.searchResultUrls.slice(0)
     newSearchResults.splice( newSearchResults.indexOf( gifUrl ), 1 )
+
     this.updateState( newSelectedGifUrls, newSearchResults )
   }
 
   handleGifDeselected( gifUrl ) {
     const newSelectedGifUrls = this.state.selectedGifUrls.slice( 0 )
     newSelectedGifUrls.splice( newSelectedGifUrls.indexOf( gifUrl ), 1 )
+
     const newSearchResults = this.state.searchResultUrls.slice(0)
-    newSearchResults.push( gifUrl )
+    if ( newSearchResults.indexOf( gifUrl ) === -1 ) {
+      newSearchResults.push( gifUrl )
+    }
+
     this.updateState( newSelectedGifUrls, newSearchResults )
   }
 
