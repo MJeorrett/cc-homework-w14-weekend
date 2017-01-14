@@ -1,6 +1,5 @@
 import React from 'react'
 
-import SelectedGifsContainer from './SelectedGifsContainer'
 import GifFinderContainer from './GifFinderContainer'
 import GifGridComponent from './GifGridComponent'
 import ButtonLinkComponent from '../components/ButtonLinkComponent'

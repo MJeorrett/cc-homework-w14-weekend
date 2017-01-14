@@ -1,6 +1,7 @@
 import React from 'react'
 
 import StorageManager from '../helpers/StorageManager'
+import GifGridComponent from './GifGridComponent'
 
 class QuestionEditContainer extends React.Component {
 
@@ -11,8 +12,14 @@ class QuestionEditContainer extends React.Component {
 
     return (
       <div>
-        <p>Editing gif-set { title }</p>
-        <p>Data: { gifSet }</p>
+        <p>Editing gif-set: { title }</p>
+        <div className="half-width">
+          <GifGridComponent
+            imageUrls={ gifSet }
+            gifCount={ gifSet.length }
+            onGifSelected={ "" }
+          />
+        </div>
       </div>
     )
   }
