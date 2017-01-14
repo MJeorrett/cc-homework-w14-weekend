@@ -3,6 +3,7 @@ import React from 'react'
 import SelectedGifsContainer from './SelectedGifsContainer'
 import GifFinderContainer from './GifFinderContainer'
 import GifGridComponent from './GifGridComponent'
+import ButtonLinkComponent from '../components/ButtonLinkComponent'
 
 class NewContainer extends React.Component {
 
@@ -12,19 +13,21 @@ class NewContainer extends React.Component {
       title: "",
       searchResultUrls: [],
       selectedGifUrls: [],
-      gifCount: 0
+      gifCount: 0,
+      nextDisabled: true
     }
     this.handleTitleChanged = this.handleTitleChanged.bind( this )
     this.updateSearchResults = this.updateSearchResults.bind( this )
     this.handleGifSelected = this.handleGifSelected.bind( this )
     this.handleGifDeselected = this.handleGifDeselected.bind( this )
-    this.handleNextClicked = this.handleNextClicked.bind( this )
   }
 
   handleTitleChanged( ev ) {
-    var newTitle = ev.target.value
+    const newTitle = ev.target.value
+    const nextDisabled = newTitle.length < 4
     this.setState({
-      title: newTitle
+      title: newTitle,
+      nextDisabled: nextDisabled
     })
   }
 
@@ -83,7 +86,11 @@ class NewContainer extends React.Component {
             value={ this.props.title }
             placeholder="Enter title for card set"
           />
-          <button onClick={ this.handleNextClicked }>Next</button>
+          <ButtonLinkComponent
+            href={ `/gif-sets/${this.state.title}` }
+            disabled={ this.state.nextDisabled }
+            text="Next"
+          />
         </nav>
         <div>
           <div className="half-width">
