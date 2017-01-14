@@ -1,5 +1,7 @@
 import React from 'react'
 
+import UrlInputContainer from './UrlInputContainer'
+
 class NewContainer extends React.Component {
 
   constructor() {
@@ -21,7 +23,13 @@ class NewContainer extends React.Component {
   render() {
     return (
       <nav>
-        <input type="text" onChange={ this.handleTitleChanged } value={ this.props.title } />
+        <input
+          type="text"
+          onChange={ this.handleTitleChanged }
+          value={ this.props.title }
+          placeholder="Enter title for card set"
+        />
+        <UrlInputContainer />
       </nav>
     )
   }
