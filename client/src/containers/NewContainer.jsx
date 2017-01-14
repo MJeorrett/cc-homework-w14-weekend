@@ -18,6 +18,7 @@ class NewContainer extends React.Component {
     this.updateSearchResults = this.updateSearchResults.bind( this )
     this.handleGifSelected = this.handleGifSelected.bind( this )
     this.handleGifDeselected = this.handleGifDeselected.bind( this )
+    this.handleNextClicked = this.handleNextClicked.bind( this )
   }
 
   handleTitleChanged( ev ) {
@@ -49,7 +50,7 @@ class NewContainer extends React.Component {
     const newSearchResults = this.state.searchResultUrls.slice(0)
     newSearchResults.splice( newSearchResults.indexOf( gifUrl ), 1 )
 
-    this.updateState( newSelectedGifUrls, newSearchResults )
+    this._updateState( newSelectedGifUrls, newSearchResults )
   }
 
   handleGifDeselected( gifUrl ) {
@@ -61,10 +62,10 @@ class NewContainer extends React.Component {
       newSearchResults.push( gifUrl )
     }
 
-    this.updateState( newSelectedGifUrls, newSearchResults )
+    this._updateState( newSelectedGifUrls, newSearchResults )
   }
 
-  updateState( newSelectedGifUrls, newSearchResults ) {
+  _updateState( newSelectedGifUrls, newSearchResults ) {
     this.setState({
       searchResultUrls: newSearchResults,
       selectedGifUrls: newSelectedGifUrls,
@@ -82,6 +83,7 @@ class NewContainer extends React.Component {
             value={ this.props.title }
             placeholder="Enter title for card set"
           />
+          <button onClick={ this.handleNextClicked }>Next</button>
         </nav>
         <div>
           <div className="half-width">
