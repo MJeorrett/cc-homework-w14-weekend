@@ -14,12 +14,14 @@ class ImageGridComponent extends React.Component {
   render() {
     var imageElements = []
     for( let i = 0; i < this.props.gifCount; i++ ) {
-      const src = this.props.imageUrls[i] || "";
+      const url = this.props.imageUrls[i]
+      const src = url || "/blank_image.jpg"
       imageElements.push(
         <img
           key={ i }
+          className={ url ? 'image' : '' }
           src={ src }
-          onClick={ this.handleGifClicked }
+          onClick={ url ? this.handleGifClicked : '' }
         />
       )
     }
