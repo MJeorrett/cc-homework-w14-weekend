@@ -1,6 +1,8 @@
 import React from 'react'
 
-import UrlInputContainer from './UrlInputContainer'
+import SearchInputContainer from './SearchInputContainer'
+
+import fetchImages from '../helpers/imageFetcher'
 
 class NewContainer extends React.Component {
 
@@ -10,7 +12,7 @@ class NewContainer extends React.Component {
       title: ""
     }
     this.handleTitleChanged = this.handleTitleChanged.bind( this )
-    this.getImagesdFromApi = this.getImagesdFromApi.bind( this )
+    this.getImages = this.getImages.bind( this )
   }
 
   handleTitleChanged( ev ) {
@@ -18,11 +20,13 @@ class NewContainer extends React.Component {
     this.setState({
       title: newTitle
     })
-    console.log( "Title changed to:", newTitle )
   }
 
-  getImagesdFromApi( apiUrl ) {
-    console.log( "getting images from", apiUrl );
+  getImages( searchTerm ) {
+    console.log( "getting images for search term:", searchTerm )
+    fetchImages( searchTerm, ( images ) => {
+      console.log( "found images:", images )
+    })
   }
 
   render() {
@@ -34,8 +38,8 @@ class NewContainer extends React.Component {
           value={ this.props.title }
           placeholder="Enter title for card set"
         />
-        <UrlInputContainer
-          urlEnteredCallback={ this.getImagesdFromApi }
+      <SearchInputContainer
+          urlEnteredCallback={ this.getImages }
         />
       </nav>
     )
