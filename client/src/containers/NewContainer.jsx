@@ -17,6 +17,7 @@ class NewContainer extends React.Component {
     this.handleTitleChanged = this.handleTitleChanged.bind( this )
     this.updateSearchResults = this.updateSearchResults.bind( this )
     this.handleGifSelected = this.handleGifSelected.bind( this )
+    this.handleGifDeselected = this.handleGifDeselected.bind( this )
   }
 
   handleTitleChanged( ev ) {
@@ -37,12 +38,23 @@ class NewContainer extends React.Component {
     const newSelectedGifUrls = this.state.selectedGifUrls.slice(0)
     newSelectedGifUrls.push( gifUrl )
     const newSearchResults = this.state.searchResultUrls.slice(0)
-    const searchResultsIndex = newSearchResults.indexOf( gifUrl )
-    newSearchResults.splice( searchResultsIndex, 1 )
+    newSearchResults.splice( newSearchResults.indexOf( gifUrl ), 1 )
+    this.updateState( newSelectedGifUrls, newSearchResults )
+  }
+
+  handleGifDeselected( gifUrl ) {
+    const newSelectedGifUrls = this.state.selectedGifUrls.slice( 0 )
+    newSelectedGifUrls.splice( newSelectedGifUrls.indexOf( gifUrl ), 1 )
+    const newSearchResults = this.state.searchResultUrls.slice(0)
+    newSearchResults.push( gifUrl )
+    this.updateState( newSelectedGifUrls, newSearchResults )
+  }
+
+  updateState( newSelectedGifUrls, newSearchResults ) {
     this.setState({
       searchResultUrls: newSearchResults,
       selectedGifUrls: newSelectedGifUrls,
-      gifCount: Math.max( this.state.searchResultUrls.length, newSelectedGifUrls.length )
+      gifCount: Math.max( newSearchResults.length, newSelectedGifUrls.length )
     })
   }
 
@@ -62,6 +74,7 @@ class NewContainer extends React.Component {
             <GifGridComponent
               imageUrls={ this.state.selectedGifUrls }
               gifCount={ this.state.gifCount }
+              onGifSelected={ this.handleGifDeselected }
             />
           </div>
           <GifFinderContainer
