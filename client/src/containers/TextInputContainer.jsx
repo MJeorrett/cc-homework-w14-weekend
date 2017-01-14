@@ -1,6 +1,6 @@
 import React from 'react'
 
-class SearchInputContainer extends React.Component {
+class TextInputContainer extends React.Component {
 
   constructor() {
     super()
@@ -45,4 +45,4 @@ class SearchInputContainer extends React.Component {
 
 }
 
-export default SearchInputContainer
+export default TextInputContainer

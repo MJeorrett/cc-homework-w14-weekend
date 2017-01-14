@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SearchInputContainer from './SearchInputContainer'
+import TextInputContainer from './TextInputContainer'
 import GifGridComponent from './GifGridComponent'
 
 import fetchGifs from '../helpers/GifFetcher'
@@ -25,7 +25,7 @@ class GifFinderContainer extends React.Component {
   render() {
     return (
       <div className="half-width">
-        <SearchInputContainer
+        <TextInputContainer
           urlEnteredCallback={ this.getImages }
         />
       <GifGridComponent
