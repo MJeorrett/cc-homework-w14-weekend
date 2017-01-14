@@ -1,10 +1,15 @@
 import React from 'react'
 
+import { Link } from 'react-router'
+
 class IndexContainer extends React.Component {
 
   render() {
     return (
-      <h1>Index Container</h1>
+      <nav>
+        <span>Index</span>
+        <Link to="/new">New</Link>
+      </nav>
     )
   }
 
