@@ -5,8 +5,9 @@ img {
 }
 
 .image:hover {
-  border: 3px solid tomato;
-  margin: 2px;
+  border: 5px solid tomato;
+  border-radius: 5px;
+  margin: 0px;
   cursor: pointer;
 }
 
