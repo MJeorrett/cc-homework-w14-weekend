@@ -2,7 +2,7 @@ import React from 'react'
 
 import StorageManager from '../helpers/StorageManager'
 import GifGridComponent from './GifGridComponent'
-import QuestionListContainer from './QuestionListContainer'
+import QuestionEditContainer from './QuestionEditContainer'
 
 class GifSetEditContainer extends React.Component {
 
@@ -37,7 +37,7 @@ class GifSetEditContainer extends React.Component {
               onGifSelected={ "" }
             />
           </div>
-          <QuestionListContainer
+          <QuestionEditContainer
             addQuestionCallback={ this.addQuestion }
           />
         </div>

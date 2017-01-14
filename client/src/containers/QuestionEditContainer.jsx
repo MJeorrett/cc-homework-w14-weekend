@@ -2,7 +2,7 @@ import React from 'react'
 
 import TextInputContainer from './TextInputContainer'
 
-class QuestionListContainer extends React.Component {
+class QuestionEditContainer extends React.Component {
 
   constructor() {
     super()
@@ -26,4 +26,4 @@ class QuestionListContainer extends React.Component {
 
 }
 
-export default QuestionListContainer
+export default QuestionEditContainer
