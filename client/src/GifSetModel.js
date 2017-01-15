@@ -3,6 +3,8 @@
 class GifSetModel {
   constructor() {
     this.title = ""
+    this.questions = []
+    this.gifs = []
   }
 }
 

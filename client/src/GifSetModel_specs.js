@@ -12,7 +12,16 @@ describe( "GifSetModel", () => {
     newGifSetModel = new GifSetModel()
   })
 
+// empty constructor tests
   it( "should start with blank title", () => {
     assert.equal( "", newGifSetModel.title )
+  })
+
+  it( "should start with 0 questions", () => {
+    assert.equal( 0, newGifSetModel.questions.length )
+  })
+
+  it( "should start with 0 gifs", () => {
+    assert.equal( 0, newGifSetModel.gifs.length )
   })
 })
