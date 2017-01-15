@@ -15,7 +15,7 @@ class IndexContainer extends React.Component {
       <div>
         <nav>
           <span>Index</span>
-          <Link to="/new">New</Link>
+          <Link className="link" to="/new">New</Link>
         </nav>
         <div className="content-container">
           { gifSetLinks }

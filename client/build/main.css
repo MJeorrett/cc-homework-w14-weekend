@@ -45,7 +45,7 @@ button, input {
   border-radius: 3px;
 }
 
-span {
+span, .link {
   font-size: 24px;
   padding-left: 20px;
 }
