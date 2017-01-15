@@ -26,6 +26,13 @@ class GifSetModel {
     })
     return questions
   }
+
+  addQuestionToGif( gifUrl, question ) {
+    var gif = this.gifs.find( (gif) => {
+      return gif.url === gifUrl
+    })
+    gif.addQuestion( question )
+  }
 }
 
 module.exports = GifSetModel
