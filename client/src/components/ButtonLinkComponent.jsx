@@ -18,7 +18,7 @@ class ButtonLinkComponent extends React.Component {
   render() {
     return (
       <Link
-        className={ this.props.disabled ? "disabled-button" : "" }
+        className={ "link" + (this.props.disabled ? " disabled-button" : "") }
         to={ this.props.href }
         onClick={ this.handleClick }
       >

@@ -18,6 +18,8 @@ h3 {
 
 h1, h2, h3 {
   text-align: center;
+  flex-grow: 1;
+  margin: 0px;
 }
 
 img {
@@ -50,8 +52,21 @@ span, .link {
   padding-left: 20px;
 }
 
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
 option {
   color: dodgerblue;
+}
+
+nav {
+  display: flex;
+  padding: 10px;
 }
 
 .half-width {
@@ -91,4 +106,9 @@ option {
 
 .index-link:hover {
   background-color: lightblue;
+}
+
+.disabled-button {
+  color: lightgrey;
+  border-color: lightgrey;
 }

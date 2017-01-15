@@ -38,6 +38,7 @@ class TextInputContainer extends React.Component {
           placeholder={ this.props.placeholder || "Enter text" }
         />
         <button
+          className={ this.state.buttonDisabled ? "disabled-button" : "" }
           onClick={ this.handleButtonClicked }
           disabled={ this.state.buttonDisabled }
         >

@@ -14,7 +14,7 @@ class IndexContainer extends React.Component {
     return (
       <div>
         <nav>
-          <span>Index</span>
+          <h2>Index</h2>
           <Link className="link" to="/new">New</Link>
         </nav>
         <div className="content-container">
