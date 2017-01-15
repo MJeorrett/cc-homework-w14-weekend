@@ -12,9 +12,12 @@ class PlayContainer extends React.Component {
       selectedGif: undefined,
       gifUrls: [],
       questions: [],
-      originalUrls: []
+      selectedQuestion: "please-select",
+      originalUrls: [],
+      message: ""
     }
     this.handleGifSelected = this.handleGifSelected.bind( this )
+    this.handleQuestionSelected = this.handleQuestionSelected.bind( this )
   }
 
   componentDidMount() {
@@ -29,7 +32,6 @@ class PlayContainer extends React.Component {
   }
 
   handleGifSelected( url, index ) {
-    console.log("index:", index);
     const newGifUrls = this.state.gifUrls.slice(0)
     if ( newGifUrls[index] === "/eliminated.jpg" ) {
       newGifUrls[index] = this.gifSetModel.gifUrls()[index]
@@ -42,13 +44,26 @@ class PlayContainer extends React.Component {
     })
   }
 
+  handleQuestionSelected( question ) {
+    const trueGifs = this.gifSetModel.gifsWithQuestion( question )
+    let message = "false"
+    if ( trueGifs.indexOf( this.state.selectedGif.url ) !== -1 ) message = "true"
+    this.setState({
+      message: message,
+      selectedQuestion: question
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>{ this.props.params.title }</h2>
         <QuestionSelectComponent
           options={ this.state.questions }
+          onQuestionSelected={ this.handleQuestionSelected }
+          selectedQuestion={ this.state.selectedQuestion }
         />
+      <span>{ this.state.message }</span>
         <GifGridComponent
           imageUrls={ this.state.gifUrls }
           onGifSelected={ this.handleGifSelected }
