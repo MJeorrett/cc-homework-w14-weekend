@@ -51,8 +51,11 @@ class GifSetModel {
   }
 
   gifsWithQuestion( question ) {
-    return this.state.gifs.filter( (gif) => {
+    const gifs = this.state.gifs.filter( (gif) => {
       return gif.questions.indexOf( question ) !== -1
+    })
+    return gifs.map( (gif) => {
+      return gif.url
     })
   }
 }

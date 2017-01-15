@@ -116,16 +116,16 @@ describe( "GifSetModel", () => {
     assert.deepEqual( ["first_url", "second_url"], loadedGifSetModel.gifUrls() )
   })
 
-  it( "should return array of gifs with a provided question - test 1", () => {
+  it( "should return array of urls of gifs with a provided question - test 1", () => {
     const actual = loadedGifSetModel.gifsWithQuestion( "First question" )
-    assert.deepEqual( gif1, actual[0] )
+    assert.equal( "first_url", actual[0] )
     assert.equal( 1, actual.length )
   })
 
-  it( "should return array of gifs with a provided question - test 2", () => {
+  it( "should return array of urls of gifs with a provided question - test 2", () => {
     const actual = loadedGifSetModel.gifsWithQuestion( "Second question" )
-    assert.deepEqual( gif1, actual[0] )
-    assert.deepEqual( gif2, actual[1] )
+    assert.equal( "first_url", actual[0] )
+    assert.equal( "second_url", actual[1] )
     assert.equal( 2, actual.length )
   })
 })
