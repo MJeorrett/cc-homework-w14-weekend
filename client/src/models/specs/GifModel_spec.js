@@ -44,4 +44,9 @@ describe( 'GifModel', () => {
     assert.equal( -1, gifModelWithQuestions.questions.indexOf( "How do you know me?" ))
   })
 
+  it( "should not remove question if it doesn't match any", () => {
+    gifModelWithQuestions.removeQuestion( "Question that is not there?" )
+    assert.equal( 3, gifModelWithQuestions.questions.length )
+  })
+
 })
