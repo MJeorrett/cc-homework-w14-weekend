@@ -12,18 +12,11 @@ class GifSetModel {
         return new GifModel( gifData )
       })
     }
-  }
 
-  questions() {
-    var questions = []
-    this.state.gifs.forEach( (gifModel) => {
-      gifModel.questions.forEach( (question) => {
-        if ( questions.indexOf( question ) === -1 ) {
-          questions.push( question )
-        }
-      })
-    })
-    return questions
+    this.state.questions = []
+    if ( data.questions ) {
+      this.state.questions = data.questions
+    }
   }
 
   addQuestionToGif( gifUrl, question ) {
@@ -31,6 +24,9 @@ class GifSetModel {
       return gif.url === gifUrl
     })
     gif.addQuestion( question )
+    if ( this.state.questions.indexOf( question ) === -1 ) {
+      this.state.questions.push( question )
+    }
   }
 
   addGif( url ) {

@@ -11,6 +11,11 @@ describe( "GifSetModel", () => {
     newGifSetModel = new GifSetModel()
     loadedGifSetModel = new GifSetModel({
       title: "Banana",
+      questions: [
+        "First question",
+        "Second question",
+        "Third question"
+      ],
       gifs: [
         {
           url: "first_url",
@@ -36,7 +41,7 @@ describe( "GifSetModel", () => {
   })
 
   it( "should start with 0 questions", () => {
-    assert.equal( 0, newGifSetModel.questions().length )
+    assert.equal( 0, newGifSetModel.state.questions.length )
   })
 
   it( "should start with 0 gifs", () => {
@@ -52,16 +57,28 @@ describe( "GifSetModel", () => {
     assert.equal( 2, loadedGifSetModel.state.gifs.length )
   })
 
-  it( "should have number of unique questions passed in constructor", () => {
-    assert.equal( 3, loadedGifSetModel.questions().length )
+  it( "should have number of questions passed in constructor", () => {
+    assert.equal( 3, loadedGifSetModel.state.questions.length )
   })
 
-  it( "should add question GifModel by url", () => {
+  it( "should add question to GifModel by url", () => {
     loadedGifSetModel.addQuestionToGif( "second_url", "test question" )
     const expectedGif = loadedGifSetModel.state.gifs.find( ( gif ) => {
       return gif.url === "second_url"
     })
     assert.notEqual( -1, expectedGif.questions.indexOf( "test question" ))
+  })
+
+  it( "should add question to questions array if not already included", () => {
+    loadedGifSetModel.addQuestionToGif( "first_url", "new question" )
+    assert.notEqual( -1, loadedGifSetModel.state.questions.indexOf( "new question" ))
+    assert.equal( 4, loadedGifSetModel.state.questions.length )
+  })
+
+  it( "should not add question to questions array if already included", () => {
+    loadedGifSetModel.addQuestionToGif( "second_url", "First question" )
+    assert.equal( 3, loadedGifSetModel.state.questions.length )
+
   })
 
   it( "should add new GifModels with no questions", () => {
