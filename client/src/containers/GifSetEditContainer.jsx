@@ -12,10 +12,12 @@ class GifSetEditContainer extends React.Component {
     this.state = {
       questions: [],
       gifUrls: [],
-      selectedQuestion: ""
+      selectedQuestion: "",
+      gifsWithSelectedQuestion: []
     }
     this.addQuestion = this.addQuestion.bind( this )
     this.handleQuestionSelected = this.handleQuestionSelected.bind( this )
+    this.addSelectedQuestionToGif = this.addSelectedQuestionToGif.bind( this )
   }
 
   componentDidMount() {
@@ -32,13 +34,23 @@ class GifSetEditContainer extends React.Component {
     this.gifSetModel.addQuestion( question )
     this.setState({
       questions: this.gifSetModel.state.questions,
-      selectedQuestion: question
+      selectedQuestion: question,
+      gifsWithSelectedQuestion: []
     })
   }
 
   handleQuestionSelected( question ) {
     this.setState({
-      selectedQuestion: question
+      selectedQuestion: question,
+      gifsWithSelectedQuestion: this.gifSetModel.gifsWithQuestion( question )
+    })
+  }
+
+  addSelectedQuestionToGif( gifUrl ) {
+    const selectedQuestion = this.state.selectedQuestion
+    if ( selectedQuestion ) this.gifSetModel.addQuestionToGif( gifUrl, selectedQuestion )
+    this.setState({
+      gifsWithSelectedQuestion: this.gifSetModel.gifsWithQuestion( selectedQuestion )
     })
   }
 
@@ -50,7 +62,8 @@ class GifSetEditContainer extends React.Component {
           <div className="half-width">
             <GifGridComponent
               imageUrls={ this.state.gifUrls }
-              onGifSelected={ "" }
+              onGifSelected={ this.addSelectedQuestionToGif }
+              selectedGifs={ this.state.gifsWithSelectedQuestion }
             />
           </div>
           <QuestionEditContainer

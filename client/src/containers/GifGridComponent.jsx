@@ -13,9 +13,11 @@ class GifGridComponent extends React.Component {
 
   render() {
     const imageElements = this.props.imageUrls.map( (imageUrl, index) => {
+      const className = this.props.selectedGifs.indexOf( imageUrl ) !== -1 ? "selected-image" : ""
       return (
         <img
           key={ index }
+          className={ className }
           src={ imageUrl }
           onClick={ this.handleGifClicked }
         />
