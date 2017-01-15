@@ -63,8 +63,6 @@ describe( "GifSetModel", () => {
     var expectedGif = loadedGifSetModel.gifs.find( ( gif ) => {
       return gif.url === "second_url"
     })
-    console.log("expectedGif:", expectedGif);
-    console.log("test:\n", JSON.stringify( loadedGifSetModel ));
     assert.notEqual( -1, expectedGif.questions.indexOf( "test question" ))
   })
 
