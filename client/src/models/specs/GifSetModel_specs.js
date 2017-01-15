@@ -89,4 +89,8 @@ describe( "GifSetModel", () => {
       return gif.url === "first_url"
     }) )
   })
+
+  it( "should return array of gifUrls", () => {
+    assert.deepEqual( ["first_url", "second_url"], loadedGifSetModel.gifUrls() )
+  })
 })

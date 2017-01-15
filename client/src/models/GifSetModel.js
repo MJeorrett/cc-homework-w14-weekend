@@ -44,6 +44,12 @@ class GifSetModel {
     const index = this.state.gifs.indexOf( gif )
     if ( index !== -1 ) this.state.gifs.splice( index, 1 )
   }
+
+  gifUrls() {
+    return this.state.gifs.map( (gif) => {
+      return gif.url
+    })
+  }
 }
 
 module.exports = GifSetModel
