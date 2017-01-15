@@ -69,16 +69,16 @@ describe( "GifSetModel", () => {
     assert.notEqual( -1, expectedGif.questions.indexOf( "test question" ))
   })
 
-  it( "should add question to questions array if not already included", () => {
-    loadedGifSetModel.addQuestionToGif( "first_url", "new question" )
-    assert.notEqual( -1, loadedGifSetModel.state.questions.indexOf( "new question" ))
+  it( "should add question to questions array if it does not exist already", () => {
+    loadedGifSetModel.addQuestion( "New question" )
     assert.equal( 4, loadedGifSetModel.state.questions.length )
+    assert.notEqual( -1, loadedGifSetModel.state.questions.indexOf( "New question" ))
+
   })
 
-  it( "should not add question to questions array if already included", () => {
-    loadedGifSetModel.addQuestionToGif( "second_url", "First question" )
+  it( "should not add question to questions array if it exist already", () => {
+    loadedGifSetModel.addQuestion( "First question" )
     assert.equal( 3, loadedGifSetModel.state.questions.length )
-
   })
 
   it( "should add new GifModels with no questions", () => {

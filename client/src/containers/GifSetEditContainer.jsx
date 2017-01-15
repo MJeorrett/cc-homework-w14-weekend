@@ -3,22 +3,31 @@ import React from 'react'
 import StorageManager from '../helpers/StorageManager'
 import GifGridComponent from './GifGridComponent'
 import QuestionEditContainer from './QuestionEditContainer'
+var GifSetModel = require('../models/GifSetModel')
 
 class GifSetEditContainer extends React.Component {
 
   constructor() {
     super()
+    this.gifSetModel = new GifSetModel( StorageManager.loadGifSet( title ) )
     this.state = {
       questions: [],
+      gifUrls: [],
       selectedQuestion: ""
     }
     this.addQuestion = this.addQuestion.bind( this )
     this.handleQuestionSelected = this.handleQuestionSelected.bind( this )
   }
 
+  componentDidLoad() {
+    this.gifSetModel = StorageManager.loadGifSet( this.props.params.title )
+    this.setState({
+      questions: this.gifSetModel.state.questions.slice(0),
+      gifUrls: this.gifSetModel.gifUrls()
+    })
+  }
+
   addQuestion( question ) {
-    const newQuestions = this.state.questions.slice(0)
-    newQuestions.push( question )
     this.setState({
       questions: newQuestions,
       selectedQuestion: question
@@ -32,17 +41,13 @@ class GifSetEditContainer extends React.Component {
   }
 
   render () {
-    const title = this.props.params.title
-    const gifSet = StorageManager.loadGifSet( title )
-
     return (
       <div>
         <h2>{ title }</h2>
         <div className="content-container">
           <div className="half-width">
             <GifGridComponent
-              imageUrls={ gifSet }
-              gifCount={ gifSet.length }
+              imageUrls={ this.state.gifUrls }
               onGifSelected={ "" }
             />
           </div>

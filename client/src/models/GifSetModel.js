@@ -19,14 +19,17 @@ class GifSetModel {
     }
   }
 
+  addQuestion( question ) {
+    if ( this.state.questions.indexOf( question ) === -1 ) {
+      this.state.questions.push( question )
+    }
+  }
+
   addQuestionToGif( gifUrl, question ) {
     const gif = this.state.gifs.find( (gif) => {
       return gif.url === gifUrl
     })
     gif.addQuestion( question )
-    if ( this.state.questions.indexOf( question ) === -1 ) {
-      this.state.questions.push( question )
-    }
   }
 
   addGif( url ) {
