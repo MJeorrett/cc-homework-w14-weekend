@@ -6,6 +6,7 @@ import MainContainer from './containers/MainContainer'
 import IndexContainer from './containers/IndexContainer'
 import NewContainer from './containers/NewContainer'
 import GifSetEditContainer from './containers/GifSetEditContainer'
+import PlayContainer from './containers/PlayContainer'
 
 window.onload = function(){
   ReactDOM.render(
@@ -17,6 +18,7 @@ window.onload = function(){
           <IndexRoute component={ IndexContainer } />
           <Route path="new" component={ NewContainer } />
           <Route path="gif-sets/:title" component={ GifSetEditContainer } />
+          <Route path="play/:title" component={ PlayContainer } />
         </Route>
       </Router>
     </div>,

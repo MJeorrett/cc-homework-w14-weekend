@@ -8,7 +8,7 @@ class IndexContainer extends React.Component {
   render() {
 
     var gifSetLinks = StorageManager.getGifSetTitles().map( (setTitle, index) => {
-      return <Link className="index-link" key={ index } to="">{ setTitle }</Link>
+      return <Link className="index-link" key={ index } to={ "play/" + setTitle }>{ setTitle }</Link>
     })
 
     return (
