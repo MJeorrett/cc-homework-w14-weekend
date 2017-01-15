@@ -27,7 +27,7 @@ class NewContainer extends React.Component {
   handleTitleChanged( ev ) {
     const newTitle = ev.target.value
     const nextDisabled = newTitle.length < 4
-    this.gifSetModel.title = newTitle
+    this.gifSetModel.state.title = newTitle
     this.setState({
       title: newTitle,
       nextDisabled: nextDisabled

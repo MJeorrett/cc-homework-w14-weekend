@@ -2,7 +2,7 @@ var GifSetModel = require('../models/GifSetModel')
 
 const StorageManager = {
   saveGifSet( gifSetModel ) {
-    localStorage.setItem( gifSetModel.title, JSON.stringify( gifSetModel.state ) )
+    localStorage.setItem( gifSetModel.state.title, JSON.stringify( gifSetModel.state ) )
   },
   loadGifSet( title ) {
     console.log( "loading gif set:", title )
