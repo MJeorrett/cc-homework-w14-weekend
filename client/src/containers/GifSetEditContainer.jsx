@@ -3,6 +3,7 @@ import React from 'react'
 import StorageManager from '../helpers/StorageManager'
 import GifGridComponent from './GifGridComponent'
 import QuestionEditContainer from './QuestionEditContainer'
+import ButtonLinkComponent from '../components/ButtonLinkComponent'
 var GifSetModel = require('../models/GifSetModel')
 
 class GifSetEditContainer extends React.Component {
@@ -18,6 +19,7 @@ class GifSetEditContainer extends React.Component {
     this.addQuestion = this.addQuestion.bind( this )
     this.handleQuestionSelected = this.handleQuestionSelected.bind( this )
     this.addSelectedQuestionToGif = this.addSelectedQuestionToGif.bind( this )
+    this.handleSaveClicked = this.handleSaveClicked.bind( this )
   }
 
   componentDidMount() {
@@ -54,10 +56,22 @@ class GifSetEditContainer extends React.Component {
     })
   }
 
+  handleSaveClicked() {
+    StorageManager.saveGifSet( this.gifSetModel )
+  }
+
   render () {
     return (
       <div>
-        <h2>{ this.state.title }</h2>
+        <nav>
+          <h2>{ this.state.title }</h2>
+          <ButtonLinkComponent
+            href="/"
+            disabled={ false }
+            text="Save"
+            onClickCallback={ this.handleSaveClicked }
+          />
+        </nav>
         <div className="content-container">
           <div className="half-width">
             <GifGridComponent
