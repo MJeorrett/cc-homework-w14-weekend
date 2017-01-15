@@ -1,9 +1,10 @@
 "use strict"
 
 class GifModel {
-  constructor( url, questions ) {
-    this.url = url
-    this.questions = questions || []
+  constructor( data ) {
+    if ( !data ) data = {}
+    this.url = data.url
+    this.questions = data.questions || []
   }
 
   addQuestion( question ) {

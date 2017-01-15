@@ -10,12 +10,18 @@ describe( 'GifModel', () => {
   var gifModelWithQuestions
 
   beforeEach( () => {
-    testGifModel = new GifModel( 'http://test-url' )
-    gifModelWithQuestions = new GifModel( 'test', [
-      "Where is the world?",
-      "Where is Wally?",
-      "How do you know me?"
-    ])
+    testGifModel = new GifModel({
+      url: 'http://test-url'
+    })
+
+    gifModelWithQuestions = new GifModel({
+      url: 'test',
+      questions: [
+        "Where is the world?",
+        "Where is Wally?",
+        "How do you know me?"
+      ]
+    })
   })
 
   it( "should have url passed in constructor", () => {
@@ -27,9 +33,11 @@ describe( 'GifModel', () => {
   })
 
   it( "should have questions passed in constructor", () => {
-      var mockQuestions = "mock questions"
-      var gifModel = new GifModel( "test", mockQuestions )
-      assert.equal( mockQuestions, gifModel.questions )
+      var gifModel = new GifModel({
+        url: "test",
+        questions: [ "mock question" ]
+      })
+      assert.deepEqual( [ "mock question" ], gifModel.questions )
   })
 
   it( "should add question passed to 'addQuestion' to questions array", () => {
