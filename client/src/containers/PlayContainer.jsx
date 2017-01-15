@@ -14,8 +14,10 @@ class PlayContainer extends React.Component {
       questions: [],
       selectedQuestion: "please-select",
       originalUrls: [],
+      faceupGifs: [],
       message: "",
-      askedQuestions: []
+      askedQuestions: [],
+      gameFinished: false
     }
     this.handleGifSelected = this.handleGifSelected.bind( this )
     this.handleQuestionSelected = this.handleQuestionSelected.bind( this )
@@ -28,20 +30,36 @@ class PlayContainer extends React.Component {
     this.setState({
       selectedGif: gifs[selectedGifIndex],
       gifUrls: this.gifSetModel.gifUrls(),
-      questions: this.gifSetModel.state.questions
+      questions: this.gifSetModel.state.questions,
+      faceupGifs: this.gifSetModel.gifUrls()
     })
   }
 
   handleGifSelected( url, index ) {
     const newGifUrls = this.state.gifUrls.slice(0)
+    const faceupGifs = this.state.faceupGifs.slice(0)
+
     if ( newGifUrls[index] === "/eliminated.jpg" ) {
       newGifUrls[index] = this.gifSetModel.gifUrls()[index]
+      faceupGifs.push( url )
     }
     else {
       newGifUrls[index] = '/eliminated.jpg'
+      faceupGifs.splice( faceupGifs.indexOf( url ), 1 )
     }
+
+    let winMessage = ""
+    if ( faceupGifs.length === 1 ) {
+      winMessage = `You won in ${this.state.askedQuestions.length} moves!`
+      if ( faceupGifs[0] !== this.state.selectedGif.url ) {
+        winMessage = 'Incorrect, you loose!'
+      }
+    }
+
     this.setState({
-      gifUrls: newGifUrls
+      gifUrls: newGifUrls,
+      winMessage: winMessage,
+      faceupGifs: faceupGifs
     })
   }
 
@@ -68,7 +86,8 @@ class PlayContainer extends React.Component {
           selectedQuestion={ this.state.selectedQuestion }
           askedQuestions={ this.state.askedQuestions }
         />
-      <span>{ this.state.message }</span>
+        <span>{ this.state.message }</span>
+        <span>{ this.state.winMessage }</span>
         <GifGridComponent
           imageUrls={ this.state.gifUrls }
           onGifSelected={ this.handleGifSelected }
