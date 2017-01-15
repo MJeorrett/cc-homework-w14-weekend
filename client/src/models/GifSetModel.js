@@ -49,6 +49,12 @@ class GifSetModel {
       return gif.url
     })
   }
+
+  gifsWithQuestion( question ) {
+    return this.state.gifs.filter( (gif) => {
+      return gif.questions.indexOf( question ) !== -1
+    })
+  }
 }
 
 module.exports = GifSetModel

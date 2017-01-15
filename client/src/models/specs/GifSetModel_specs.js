@@ -6,9 +6,26 @@ describe( "GifSetModel", () => {
 
   let newGifSetModel;
   let loadedGifSetModel;
+  let gif1;
+  let gif2;
 
   beforeEach( () => {
     newGifSetModel = new GifSetModel()
+    gif1 = {
+      url: "first_url",
+      questions: [
+        "First question",
+        "Second question",
+        "Third question"
+      ]
+    }
+    gif2 = {
+      url: "second_url",
+      questions: [
+        "Second question"
+      ]
+    }
+
     loadedGifSetModel = new GifSetModel({
       title: "Banana",
       questions: [
@@ -17,20 +34,8 @@ describe( "GifSetModel", () => {
         "Third question"
       ],
       gifs: [
-        {
-          url: "first_url",
-          questions: [
-            "First question",
-            "Second question",
-            "Third question"
-          ]
-        },
-        {
-          url: "second_url",
-          questions: [
-            "Second question"
-          ]
-        }
+        gif1,
+        gif2
       ]
     })
   })
@@ -109,5 +114,18 @@ describe( "GifSetModel", () => {
 
   it( "should return array of gifUrls", () => {
     assert.deepEqual( ["first_url", "second_url"], loadedGifSetModel.gifUrls() )
+  })
+
+  it( "should return array of gifs with a provided question - test 1", () => {
+    const actual = loadedGifSetModel.gifsWithQuestion( "First question" )
+    assert.deepEqual( gif1, actual[0] )
+    assert.equal( 1, actual.length )
+  })
+
+  it( "should return array of gifs with a provided question - test 2", () => {
+    const actual = loadedGifSetModel.gifsWithQuestion( "Second question" )
+    assert.deepEqual( gif1, actual[0] )
+    assert.deepEqual( gif2, actual[1] )
+    assert.equal( 2, actual.length )
   })
 })
