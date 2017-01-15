@@ -1,5 +1,4 @@
-"use strict"
-var GifModel = require('./GifModel')
+const GifModel = require('./GifModel')
 
 class GifSetModel {
   constructor( data ) {
@@ -28,7 +27,7 @@ class GifSetModel {
   }
 
   addQuestionToGif( gifUrl, question ) {
-    var gif = this.gifs.find( (gif) => {
+    const gif = this.gifs.find( (gif) => {
       return gif.url === gifUrl
     })
     gif.addQuestion( question )
@@ -39,10 +38,10 @@ class GifSetModel {
   }
 
   removeGif( url ) {
-    var gif = this.gifs.find( (gif) => {
+    const gif = this.gifs.find( (gif) => {
       return gif.url === url
     })
-    var index = this.gifs.indexOf( gif )
+    const index = this.gifs.indexOf( gif )
     if ( index !== -1 ) this.gifs.splice( index, 1 )
   }
 }

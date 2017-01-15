@@ -1,5 +1,3 @@
-"use strict"
-
 class GifModel {
   constructor( data ) {
     if ( !data ) data = {}
@@ -12,7 +10,7 @@ class GifModel {
   }
 
   removeQuestion( question ) {
-    var questionIndex = this.questions.indexOf( question )
+    const questionIndex = this.questions.indexOf( question )
     if (  questionIndex !== -1 ) {
       this.questions.splice( questionIndex, 1 )
     }

@@ -1,13 +1,11 @@
-"use strict"
+const assert = require('chai').assert
 
-var assert = require('chai').assert
-
-var GifModel = require('../GifModel')
+const GifModel = require('../GifModel')
 
 describe( 'GifModel', () => {
 
-  var testGifModel
-  var gifModelWithQuestions
+  let testGifModel
+  let gifModelWithQuestions
 
   beforeEach( () => {
     testGifModel = new GifModel({

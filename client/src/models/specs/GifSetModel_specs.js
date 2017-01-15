@@ -1,13 +1,11 @@
-"use strict"
+const assert = require('chai').assert
 
-var assert = require('chai').assert
-
-var GifSetModel = require('../GifSetModel')
+const GifSetModel = require('../GifSetModel')
 
 describe( "GifSetModel", () => {
 
-  var newGifSetModel;
-  var loadedGifSetModel;
+  let newGifSetModel;
+  let loadedGifSetModel;
 
   beforeEach( () => {
     newGifSetModel = new GifSetModel()
@@ -60,7 +58,7 @@ describe( "GifSetModel", () => {
 
   it( "should add question GifModel by url", () => {
     loadedGifSetModel.addQuestionToGif( "second_url", "test question" )
-    var expectedGif = loadedGifSetModel.gifs.find( ( gif ) => {
+    const expectedGif = loadedGifSetModel.gifs.find( ( gif ) => {
       return gif.url === "second_url"
     })
     assert.notEqual( -1, expectedGif.questions.indexOf( "test question" ))
@@ -68,7 +66,7 @@ describe( "GifSetModel", () => {
 
   it( "should add new GifModels with no questions", () => {
     newGifSetModel.addGif( "testUrl" );
-    var expectedGif = newGifSetModel.gifs.find( (gif) => {
+    const expectedGif = newGifSetModel.gifs.find( (gif) => {
       return gif.url === "testUrl"
     })
     assert.equal( 0, expectedGif.questions.length )
