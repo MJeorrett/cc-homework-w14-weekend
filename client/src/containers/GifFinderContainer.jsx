@@ -34,6 +34,7 @@ class GifFinderContainer extends React.Component {
         imageUrls={ this.props.gifsToDisplay }
         onGifSelected={ this.props.onGifSelected }
         gifCount={ this.props.gifCount }
+        selectedGifs={ [] }
       />
       </div>
     )

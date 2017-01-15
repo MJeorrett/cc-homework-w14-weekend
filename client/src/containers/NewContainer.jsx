@@ -98,6 +98,7 @@ class NewContainer extends React.Component {
             <GifGridComponent
               imageUrls={ this.state.selectedGifUrls }
               onGifSelected={ this.handleGifDeselected }
+              selectedGifs={ [] }
             />
           </div>
           <GifFinderContainer

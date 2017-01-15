@@ -21,8 +21,8 @@ h1, h2, h3 {
 }
 
 img {
-  width: 190px;
-  height: 190px;
+  width: 180px;
+  height: 180px;
   margin: 10px;
   border-radius: 5px;
 }
@@ -38,7 +38,7 @@ button {
   cursor: pointer;
 }
 
-img, button, input {
+button, input {
   margin: 8px;
   border: 3px solid dodgerblue;
   background-color: white;
@@ -57,6 +57,7 @@ img, button, input {
 
 .selected-question {
   background-color: dodgerblue;
+  color: white;
 }
 
 .selected-image {
