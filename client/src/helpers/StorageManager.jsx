@@ -1,8 +1,8 @@
 const StorageManager = {
-  saveGifSet( title, gifSet ) {
-    localStorage.setItem( title, JSON.stringify( gifSet ) );
+  saveGifSet( title, data ) {
+    localStorage.setItem( title, JSON.stringify( data ) );
   },
-  loadGifSet( title, callback ) {
+  loadGifSet( title ) {
     console.log( "loading gif set:", title );
     console.log( "data", localStorage.getItem( title ) );
     return JSON.parse( localStorage.getItem( title ) )

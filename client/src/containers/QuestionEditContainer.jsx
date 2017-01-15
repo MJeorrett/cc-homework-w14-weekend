@@ -1,7 +1,7 @@
 import React from 'react'
 
 import TextInputContainer from './TextInputContainer'
-import QuestionListComponent from '../components/QuestionListComponent'
+import QuestionListContainer from './QuestionListContainer'
 
 class QuestionEditContainer extends React.Component {
 
@@ -22,8 +22,10 @@ class QuestionEditContainer extends React.Component {
           placeholder="Enter a question"
           buttonText="Add Question"
         />
-        <QuestionListComponent
+      <QuestionListContainer
           questions={ this.props.questions }
+          selectedQuestion={ this.props.selectedQuestion }
+          onQuestionSelected={ this.props.onQuestionSelected }
         />
       </div>
     )

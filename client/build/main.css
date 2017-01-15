@@ -23,3 +23,7 @@ img:hover {
 .content-container {
   display: flex;
 }
+
+.selected-question {
+  background-color: tomato;
+}
