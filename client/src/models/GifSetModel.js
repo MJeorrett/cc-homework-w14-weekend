@@ -3,12 +3,12 @@ const GifModel = require('./GifModel')
 class GifSetModel {
   constructor( data ) {
     if ( !data ) data = {}
+    this.state = {}
+    this.state.title = data.title || ""
 
-    this.title = data.title || ""
-
-    this.gifs = []
+    this.state.gifs = []
     if ( data.gifs ) {
-      this.gifs = data.gifs.map( (gifData) => {
+      this.state.gifs = data.gifs.map( (gifData) => {
         return new GifModel( gifData )
       })
     }
@@ -16,7 +16,7 @@ class GifSetModel {
 
   questions() {
     var questions = []
-    this.gifs.forEach( (gifModel) => {
+    this.state.gifs.forEach( (gifModel) => {
       gifModel.questions.forEach( (question) => {
         if ( questions.indexOf( question ) === -1 ) {
           questions.push( question )
@@ -27,22 +27,22 @@ class GifSetModel {
   }
 
   addQuestionToGif( gifUrl, question ) {
-    const gif = this.gifs.find( (gif) => {
+    const gif = this.state.gifs.find( (gif) => {
       return gif.url === gifUrl
     })
     gif.addQuestion( question )
   }
 
   addGif( url ) {
-    this.gifs.push( new GifModel({ url: url }) )
+    this.state.gifs.push( new GifModel({ url: url }) )
   }
 
   removeGif( url ) {
-    const gif = this.gifs.find( (gif) => {
+    const gif = this.state.gifs.find( (gif) => {
       return gif.url === url
     })
-    const index = this.gifs.indexOf( gif )
-    if ( index !== -1 ) this.gifs.splice( index, 1 )
+    const index = this.state.gifs.indexOf( gif )
+    if ( index !== -1 ) this.state.gifs.splice( index, 1 )
   }
 }
 
