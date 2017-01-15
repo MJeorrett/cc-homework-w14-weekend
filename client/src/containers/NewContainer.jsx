@@ -84,7 +84,7 @@ class NewContainer extends React.Component {
             type="text"
             onChange={ this.handleTitleChanged }
             value={ this.props.title }
-            placeholder="Enter title for card set"
+            placeholder="Enter title"
           />
           <ButtonLinkComponent
             href={ `/gif-sets/${this.state.title}` }

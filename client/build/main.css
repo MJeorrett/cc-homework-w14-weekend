@@ -1,3 +1,21 @@
+* {
+  font-family: monospace;
+  color: dodgerblue;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
 h1, h2, h3 {
   text-align: center;
 }
@@ -20,6 +38,13 @@ button {
   cursor: pointer;
 }
 
+img, button, input {
+  margin: 8px;
+  border: 3px solid dodgerblue;
+  background-color: white;
+  border-radius: 3px;
+}
+
 .half-width {
   display: inline-block;
   width: 50%;
@@ -27,6 +52,7 @@ button {
 
 .content-container {
   display: flex;
+  padding: 15px;
 }
 
 .selected-question {
@@ -41,4 +67,18 @@ button {
 .selected-image:hover {
   border: 5px solid dodgerblue;
   margin: 5px;
+}
+
+.index-link {
+  border: 5px solid dodgerblue;
+  font-size: 30px;
+  padding: 10px;
+  margin: 10px;
+  color: dodgerblue;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.index-link:hover {
+  background-color: lightblue;
 }
