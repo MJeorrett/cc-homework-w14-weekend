@@ -2,7 +2,7 @@
 
 var assert = require('chai').assert
 
-var GifSetModel = require('./GifSetModel')
+var GifSetModel = require('../GifSetModel')
 
 describe( "GifSetModel", () => {
 

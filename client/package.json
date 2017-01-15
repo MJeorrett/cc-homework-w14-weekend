@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha src/GifSetModel_specs.js",
+    "test": "mocha src/models/specs",
     "start": "webpack -w"
   },
   "keywords": [],
