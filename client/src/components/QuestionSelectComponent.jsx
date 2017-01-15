@@ -7,6 +7,8 @@ class QuestionSelectComponent extends React.Component {
       return <option key={ index } value={ optionText }>{ optionText }</option>
     })
 
+    options.unshift( <option key="please-select" value="" selected disabled>Select a question</option> )
+
     return (
       <select>
         { options }
