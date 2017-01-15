@@ -37,6 +37,14 @@ class GifSetModel {
   addGif( url ) {
     this.gifs.push( new GifModel({ url: url }) )
   }
+
+  removeGif( url ) {
+    var gif = this.gifs.find( (gif) => {
+      return gif.url === url
+    })
+    var index = this.gifs.indexOf( gif )
+    if ( index !== -1 ) this.gifs.splice( index, 1 )
+  }
 }
 
 module.exports = GifSetModel

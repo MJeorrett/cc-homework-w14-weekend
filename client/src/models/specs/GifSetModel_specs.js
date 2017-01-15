@@ -73,4 +73,22 @@ describe( "GifSetModel", () => {
     })
     assert.equal( 0, expectedGif.questions.length )
   })
+
+  it( "should be able to remove gif by url", () => {
+    loadedGifSetModel.removeGif( "second_url" )
+    assert.equal( 1, loadedGifSetModel.gifs.length )
+    assert.equal( undefined, loadedGifSetModel.gifs.find( (gif) => {
+      return gif.url === "second_url"
+    }) )
+    assert.deepEqual( {
+      url: "first_url",
+      questions: [
+        "First question",
+        "Second question",
+        "Third question"
+      ]
+    }, loadedGifSetModel.gifs.find( (gif) => {
+      return gif.url === "first_url"
+    }) )
+  })
 })
