@@ -14,7 +14,8 @@ class PlayContainer extends React.Component {
       questions: [],
       selectedQuestion: "please-select",
       originalUrls: [],
-      message: ""
+      message: "",
+      askedQuestions: []
     }
     this.handleGifSelected = this.handleGifSelected.bind( this )
     this.handleQuestionSelected = this.handleQuestionSelected.bind( this )
@@ -48,9 +49,12 @@ class PlayContainer extends React.Component {
     const trueGifs = this.gifSetModel.gifsWithQuestion( question )
     let message = "false"
     if ( trueGifs.indexOf( this.state.selectedGif.url ) !== -1 ) message = "true"
+    const askedQuestions = this.state.askedQuestions
+    askedQuestions.push( question )
     this.setState({
       message: message,
-      selectedQuestion: question
+      selectedQuestion: question,
+      askedQuestions: askedQuestions
     })
   }
 
@@ -62,6 +66,7 @@ class PlayContainer extends React.Component {
           options={ this.state.questions }
           onQuestionSelected={ this.handleQuestionSelected }
           selectedQuestion={ this.state.selectedQuestion }
+          askedQuestions={ this.state.askedQuestions }
         />
       <span>{ this.state.message }</span>
         <GifGridComponent

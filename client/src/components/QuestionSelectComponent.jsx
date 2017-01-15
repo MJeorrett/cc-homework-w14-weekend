@@ -13,7 +13,15 @@ class QuestionSelectComponent extends React.Component {
 
   render() {
     var options = this.props.options.map( (optionText, index) => {
-      return <option key={ index } value={ optionText }>{ optionText }</option>
+      return (
+        <option
+          key={ index }
+          value={ optionText }
+          disabled={ this.props.askedQuestions.indexOf( optionText ) !== -1 }
+        >
+          { optionText }
+        </option>
+      )
     })
 
     options.unshift( <option key="please-select" value="" disabled>Select a question</option> )

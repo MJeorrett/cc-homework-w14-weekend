@@ -50,6 +50,10 @@ span {
   padding-left: 20px;
 }
 
+option {
+  color: dodgerblue;
+}
+
 .half-width {
   display: inline-block;
   width: 50%;
