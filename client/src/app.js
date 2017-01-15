@@ -17,7 +17,7 @@ window.onload = function(){
         <Route path="/" component={ MainContainer }>
           <IndexRoute component={ IndexContainer } />
           <Route path="new" component={ NewContainer } />
-          <Route path="gif-sets/:title" component={ GifSetEditContainer } />
+          <Route path="edit/:title" component={ GifSetEditContainer } />
           <Route path="play/:title" component={ PlayContainer } />
         </Route>
       </Router>

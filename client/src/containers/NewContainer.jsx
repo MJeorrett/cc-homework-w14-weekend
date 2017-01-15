@@ -87,7 +87,7 @@ class NewContainer extends React.Component {
             placeholder="Enter title"
           />
           <ButtonLinkComponent
-            href={ `/gif-sets/${this.state.title}` }
+            href={ `/edit/${this.state.title}` }
             disabled={ this.state.nextDisabled }
             text="Next"
             onClickCallback={ this.handleNextClicked }
