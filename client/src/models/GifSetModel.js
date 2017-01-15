@@ -33,6 +33,10 @@ class GifSetModel {
     })
     gif.addQuestion( question )
   }
+
+  addGif( url ) {
+    this.gifs.push( new GifModel({ url: url }) )
+  }
 }
 
 module.exports = GifSetModel

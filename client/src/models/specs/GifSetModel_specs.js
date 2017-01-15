@@ -67,4 +67,12 @@ describe( "GifSetModel", () => {
     console.log("test:\n", JSON.stringify( loadedGifSetModel ));
     assert.notEqual( -1, expectedGif.questions.indexOf( "test question" ))
   })
+
+  it( "should add new GifModels with no questions", () => {
+    newGifSetModel.addGif( "testUrl" );
+    var expectedGif = newGifSetModel.gifs.find( (gif) => {
+      return gif.url === "testUrl"
+    })
+    assert.equal( 0, expectedGif.questions.length )
+  })
 })
