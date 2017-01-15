@@ -8,7 +8,7 @@ class GifGridComponent extends React.Component {
   }
 
   handleGifClicked( ev ) {
-    if ( this.props.onGifSelected ) this.props.onGifSelected( ev.target.src )
+    if ( this.props.onGifSelected ) this.props.onGifSelected( ev.target.src, ev.target.id )
   }
 
   render() {
@@ -17,6 +17,7 @@ class GifGridComponent extends React.Component {
       return (
         <img
           key={ index }
+          id={ index }
           className={ className }
           src={ imageUrl }
           onClick={ this.handleGifClicked }
