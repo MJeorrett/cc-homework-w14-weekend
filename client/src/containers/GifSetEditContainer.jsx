@@ -9,7 +9,6 @@ class GifSetEditContainer extends React.Component {
 
   constructor() {
     super()
-    this.gifSetModel = new GifSetModel( StorageManager.loadGifSet( title ) )
     this.state = {
       questions: [],
       gifUrls: [],
@@ -19,17 +18,20 @@ class GifSetEditContainer extends React.Component {
     this.handleQuestionSelected = this.handleQuestionSelected.bind( this )
   }
 
-  componentDidLoad() {
+  componentDidMount() {
     this.gifSetModel = StorageManager.loadGifSet( this.props.params.title )
+    console.log("gifSetModel:", this.gifSetModel);
     this.setState({
+      title: this.gifSetModel.state.title,
       questions: this.gifSetModel.state.questions.slice(0),
       gifUrls: this.gifSetModel.gifUrls()
     })
   }
 
   addQuestion( question ) {
+    this.gifSetModel.addQuestion( question )
     this.setState({
-      questions: newQuestions,
+      questions: this.gifSetModel.state.questions,
       selectedQuestion: question
     })
   }
@@ -43,7 +45,7 @@ class GifSetEditContainer extends React.Component {
   render () {
     return (
       <div>
-        <h2>{ title }</h2>
+        <h2>{ this.state.title }</h2>
         <div className="content-container">
           <div className="half-width">
             <GifGridComponent
