@@ -36,6 +36,9 @@ class PlayContainer extends React.Component {
   }
 
   handleGifSelected( url, index ) {
+
+    if ( this.state.gameFinished ) return
+
     const newGifUrls = this.state.gifUrls.slice(0)
     const faceupGifs = this.state.faceupGifs.slice(0)
 
@@ -49,7 +52,9 @@ class PlayContainer extends React.Component {
     }
 
     let winMessage = ""
+    let gameFinished = false
     if ( faceupGifs.length === 1 ) {
+      gameFinished = true
       winMessage = `You won in ${this.state.askedQuestions.length} moves!`
       if ( faceupGifs[0] !== this.state.selectedGif.url ) {
         winMessage = 'Incorrect, you loose!'
@@ -59,11 +64,15 @@ class PlayContainer extends React.Component {
     this.setState({
       gifUrls: newGifUrls,
       winMessage: winMessage,
-      faceupGifs: faceupGifs
+      faceupGifs: faceupGifs,
+      gameFinished: gameFinished
     })
   }
 
   handleQuestionSelected( question ) {
+
+    if ( this.state.gameFinished ) return
+
     const trueGifs = this.gifSetModel.gifsWithQuestion( question )
     let message = "false"
     if ( trueGifs.indexOf( this.state.selectedGif.url ) !== -1 ) message = "true"
